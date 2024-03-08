@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState} from 'react';
 import { View, Text, TextInput, Image, Button, StyleSheet, ToastAndroid } from 'react-native';
-
 export default function App() {
-  return (
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+return (
     <View style={styles.container}>
       <Image
         source={require('./assets/wall.jpg')}
@@ -13,7 +14,7 @@ export default function App() {
           source={require('./assets/Logos.jpg')}
           style={styles.logoImage}
         />
-        <Text style={styles.logoT}>A J T M Express</Text>
+        <Text style={styles.logoT}>Armando Torres</Text>
       </View>
       <View style={styles.form}>
         <Text style={styles.formText}>INGRESAR</Text>
@@ -25,6 +26,8 @@ export default function App() {
             style={styles.formTextInput}
             placeholder='Correo electrónico'
             keyboardType='email-address'
+            value={email}
+            onChangeText={ text => setEmail(text)}
           />
         </View>
         <View style={styles.formInput}>
@@ -36,13 +39,17 @@ export default function App() {
             placeholder='Contraseña'
             keyboardType='default'
             secureTextEntry={true}
+            value={password}
+            onChangeText={ text => setPassword(text)}
           />
         </View>
         <View style={{ marginTop: 30 }}>
           <Button
             title='ENTRAR'
-            onPress={() => ToastAndroid.show('PPT 1404402', ToastAndroid.LONG)}
-            color={'red'}
+            onPress={() => {ToastAndroid.show('PPT 1404402', ToastAndroid.LONG)
+            console.log('Email: ' + email);
+            console.log('Password: ' + password);}}
+            color={'green'}
           />
         </View>
         <View style={styles.formRegister}>
@@ -53,7 +60,6 @@ export default function App() {
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
