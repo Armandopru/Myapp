@@ -4,8 +4,10 @@ import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../../../App';
 import { RoundedButton } from '../../../Presentation/components/RoundedButton';
-import { CustomTextInput } from '../../../Presentation/components/CustomTextInput';
+import { CustomTextInput } from '../../components/CusatomTextInput';
 import useViewModel from '../../../viewModel';
+import styles from '../home/Styles';
+
 
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'HomeScreen'>;
 
@@ -21,15 +23,15 @@ export const HomeScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Image source={require('../../../../assets/chef.jpg')} style={styles.imageBackground} />
+      <Image source={require('../../../../assets/wall.jpg')} style={styles.imageBackground} />
       <View style={styles.logoContainer}>
-        <Image source={require('../../../../assets/logo.png')} style={styles.logoImage} />
-        <Text style={styles.logoText}>FOOD APP</Text>
+        <Image source={require('../../../../assets/Logos.jpg')} style={styles.logoImage} />
+        <Text style={styles.logoText}>Armando Jose</Text>
       </View>
       <View style={styles.form}>
         <Text style={styles.formText}>INGRESAR</Text>
         <CustomTextInput
-          image={require('../../../../assets/email.png')}
+          image={require('../../../../assets/email.jpg')}
           placeholder='Correo electrónico'
           keyboardType='email-address'
           property='email'
@@ -37,7 +39,7 @@ export const HomeScreen = () => {
           value={email}
         />
         <CustomTextInput
-          image={require('../../../../assets/password.png')}
+          image={require('../../../../assets/pass.jpg')}
           placeholder='Contraseña'
           keyboardType='default'
           property='password'
@@ -59,58 +61,3 @@ export const HomeScreen = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'black',
-  },
-  imageBackground: {
-    width: '100%',
-    height: '100%',
-    opacity: 0.7,
-    bottom: '30%',
-  },
-  form: {
-    width: '100%',
-    height: '40%',
-    backgroundColor: 'white',
-    position: 'absolute',
-    bottom: 0,
-    borderTopLeftRadius: 40,
-    borderTopRightRadius: 40,
-    padding: 30,
-  },
-  formText: {
-    fontWeight: 'bold',
-    fontSize: 16,
-  },
-  formRegister: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    marginTop: 30,
-  },
-  formRegisterText: {
-    fontStyle: 'italic',
-    color: 'orange',
-    borderBottomWidth: 1,
-    borderBottomColor: 'orange',
-    fontWeight: 'bold',
-    marginLeft: 10,
-  },
-  logoContainer: {
-    position: 'absolute',
-    alignSelf: 'center',
-    top: '15%',
-  },
-  logoImage: {
-    width: 100,
-    height: 100,
-  },
-  logoText: {
-    color: 'white',
-    textAlign: 'center',
-    fontSize: 20,
-    marginTop: 10,
-    fontWeight: 'bold',
-  },
-});
