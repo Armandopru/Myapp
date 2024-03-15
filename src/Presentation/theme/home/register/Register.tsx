@@ -10,7 +10,7 @@ export const RegisterScreen = () => {
 
     const handleRegister = async () => {
         try {
-            await register(); // llamamos a la función de registro
+            await register();
         } catch (error) {
             console.log('ERROR: ' + error);
         }
